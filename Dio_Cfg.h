@@ -20,16 +20,21 @@
 /*
  * Module Version 1.0.0
  */
-#define STD_TYPES_SW_MAJOR_VERSION                           (1U)
-#define STD_TYPES_SW_MINOR_VERSION                           (0U)
-#define STD_TYPES_SW_PATCH_VERSION                           (0U)
+#define DIO_CFG_SW_MAJOR_VERSION                           (1U)
+#define DIO_CFG_SW_MINOR_VERSION                           (0U)
+#define DIO_CFG_SW_PATCH_VERSION                           (0U)
 
 /*
  * AUTOSAR Version 4.4.0
  */
-#define STD_TYPES_AR_RELEASE_MAJOR_VERSION                   (4U)
-#define STD_TYPES_AR_RELEASE_MINOR_VERSION                   (4U)
-#define STD_TYPES_AR_RELEASE_PATCH_VERSION                   (0U)
+#define DIO_CFG_AR_RELEASE_MAJOR_VERSION                   (4U)
+#define DIO_CFG_AR_RELEASE_MINOR_VERSION                   (4U)
+#define DIO_CFG_AR_RELEASE_PATCH_VERSION                   (0U)
+
+#define INPUT                              (uint8)0x00
+#define OUTPUT                             (uint8)0x01
+#define PIN_INPUT                          (uint8)0x00
+#define PIN_OUTPUT                         (uint8)0x01
 
 /* Pre-compile option for Development Error Detect */
 #define DIO_DEV_ERROR_DETECT                (STD_ON)
@@ -38,56 +43,80 @@
 #define DIO_VERSION_INFO_API                (STD_ON)
 
 /* Pre-compile option for presence of Dio_FlipChannel API */
-#define DIO_FLIP_CHANNEL_API                (STD_ON)
+#define DIO_FLIP_CHANNEL_API                (STD_OFF)
 
 /* Number of the configured Dio Channels */
 #define DIO_CONFIGURED_CHANNLES             (4U)
 
 /* Number of the configured Dio Ports */
-#define DIO_CONFIGURED_PORTS 				(2U)
+#define DIO_CONFIGURED_PORTS 				(32U)
 
 /* Number of the configured Dio Groups */
-#define DIO_CONFIGURED_GROUPS 				(2U)
+#define DIO_CONFIGURED_GROUPS 				(0U)
 
-/* Channel Index in the array of structures in Dio_PBcfg.c */
-#define DioConf_LED1_CHANNEL_ID_INDEX        (uint8)0x00
-#define DioConf_LED2_CHANNEL_ID_INDEX        (uint8)0x01
-#define DioConf_BUTTON1_CHANNEL_ID_INDEX     (uint8)0x02
-#define DioConf_BUTTON2_CHANNEL_ID_INDEX     (uint8)0x03
+/* Number of channels per Dio Port */
+#define NUM_OF_PINS_IN_SINGLE_PORT			(8U)
 
-/* DIO Configured Port ID's  */
-#define DioConf_LED1_PORT_NUM                (Dio_PortType)2 /* PORTC */
-#define DioConf_LED2_PORT_NUM                (Dio_PortType)3 /* PORTD */
-#define DioConf_BUTTON1_PORT_NUM             (Dio_PortType)0 /* PORTA */
-#define DioConf_BUTTON2_PORT_NUM             (Dio_PortType)1 /* PORTB */
+#define PORTA_ID                          (uint8)0x01
+#define PORTB_ID                          (uint8)0x02
+#define PORTC_ID                          (uint8)0x03
+#define PORTD_ID                          (uint8)0x04
 
-/* DIO Configured Channel ID's */
-#define DioConf_LED1_CHANNEL_NUM             (Dio_ChannelType)3 /* Pin 3 in PORTC */
-#define DioConf_LED2_CHANNEL_NUM             (Dio_ChannelType)6 /* Pin 6 in PORTD */
-#define DioConf_BUTTON1_CHANNEL_NUM          (Dio_ChannelType)2 /* Pin 2 in PORTA */
-#define DioConf_BUTTON2_CHANNEL_NUM          (Dio_ChannelType)4 /* Pin 4 in PORTB */
+/* Port Input Pins */
+#define    PIN0         0
+#define    PIN1         1
+#define    PIN2         2
+#define    PIN3         3
+#define    PIN4         4
+#define    PIN5         5
+#define    PIN6         6
+#define    PIN7         7
 
-#define DioConf_PORT1_PORT_ID_INDEX        	 (uint8)0x00
-#define DioConf_PORT2_PORT_ID_INDEX          (uint8)0x01
-#define DioConf_PORT1_PORT_NUM               (Dio_PortType)2 /* PORTC */
-#define DioConf_PORT2_PORT_NUM               (Dio_PortType)3 /* PORTD */
+/* Port Input Pins */
+#define    PIN0_ID         0
+#define    PIN1_ID         1
+#define    PIN2_ID         2
+#define    PIN3_ID         3
+#define    PIN4_ID         4
+#define    PIN5_ID         5
+#define    PIN6_ID         6
+#define    PIN7_ID         7
 
-#define DioConf_RGP_CHANNEL_GROUP_INDEX     (uint8)0x00
+/* Port Input Pins */
+#define    PIN_A_0         0  // 0
+#define    PIN_A_1         1  // 1
+#define    PIN_A_2         2  // 2
+#define    PIN_A_3         3  // 3
+#define    PIN_A_4         4  // 4
+#define    PIN_A_5         5  // 5
+#define    PIN_A_6         6  // 6
+#define    PIN_A_7         7  // 7
 
-/* DIO Configured Port channel group Mask */
-#define DioConf_RGB_CHANNEL_GROUP_MASK       (uint8)0b11100000
+#define    PIN_B_0         8  // 0
+#define    PIN_B_1         9  // 1
+#define    PIN_B_2         10 // 2
+#define    PIN_B_3         11 // 3
+#define    PIN_B_4         12 // 4
+#define    PIN_B_5         13 // 5
+#define    PIN_B_6         14 // 6
+#define    PIN_B_7         15 // 7
 
-/* DIO Configured Port channel group offset */
-#define DioConf_RGB_CHANNEL_GROUP_OFFSET       (uint8)0x05
-#define DioConf_RGB_PORT_NUM                 (Dio_PortType)0 /* PORTA */
+#define    PIN_C_0         16 // 0
+#define    PIN_C_1         17 // 1
+#define    PIN_C_2         18 // 2
+#define    PIN_C_3         19 // 3
+#define    PIN_C_4         20 // 4
+#define    PIN_C_5         21 // 5
+#define    PIN_C_6         22 // 6
+#define    PIN_C_7         23 // 7
 
-#define DioConf_RGP1_CHANNEL_GROUP_INDEX     (uint8)0x01
-
-/* DIO Configured Port channel group Mask */
-#define DioConf_RGB1_CHANNEL_GROUP_MASK       (uint8)0b11100000
-
-/* DIO Configured Port channel group offset */
-#define DioConf_RGB1_CHANNEL_GROUP_OFFSET       (uint8)0x05
-#define DioConf_RGB1_PORT_NUM                 (Dio_PortType)3 /* PORTD */
+#define    PIN_D_0         24 // 0
+#define    PIN_D_1         25 // 1
+#define    PIN_D_2         26 // 2
+#define    PIN_D_3         27 // 3
+#define    PIN_D_4         28 // 4
+#define    PIN_D_5         29 // 5
+#define    PIN_D_6         30 // 6
+#define    PIN_D_7         31 // 7
 
 #endif //__DIO_CFG_H__

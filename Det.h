@@ -17,6 +17,16 @@
 #ifndef __DET_H__
 #define __DET_H__
 
+/* Id for the company in the AUTOSAR
+ * for example Mahmoud Helmy's ID = 1000 :) */
+#define DET_VENDOR_ID                 (1000U)
+
+/* Det Module Id */
+#define DET_MODULE_ID                 (15U)
+
+/* Instance Id */
+#define DET_INSTANCE_ID               (0U)
+
 /*
  * @brief Include Std_Types Abstraction
  */
@@ -43,7 +53,12 @@
 #endif
 #endif
 
-void Det_ReportError( uint16 ModuleId,
+extern uint16 Det_ModuleId;       /*DET module ID*/
+extern uint8 Det_InstanceId;      /*DET instance ID*/
+extern uint8 Det_ApiId;           /* DET API ID*/
+extern uint8 Det_ErrorId;         /* DET Error ID*/
+
+Std_ReturnType Det_ReportError( uint16 ModuleId,
                       uint8 InstanceId,
                       uint8 ApiId,
 					  uint8 ErrorId );

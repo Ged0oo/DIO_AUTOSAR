@@ -88,6 +88,9 @@ typedef struct
 #define STD_HIGH        0x01U       /* Standard HIGH */
 #define STD_LOW         0x00U       /* Standard LOW */
 
+#define LOGIC_HIGH      0x01U       /* Standard HIGH */
+#define LOGIC_LOW       0x00U       /* Standard LOW */
+
 #define STD_ACTIVE      0x01U       /* Logical state active */
 #define STD_IDLE        0x00U       /* Logical state idle */
 
@@ -96,6 +99,7 @@ typedef struct
 
 #define E_OK            ((Std_ReturnType)0x00U)      /* Function Return OK */
 #define E_NOT_OK        ((Std_ReturnType)0x01U)      /* Function Return NOT OK */
+
 
 #endif //__STD_TYPES_H__
 

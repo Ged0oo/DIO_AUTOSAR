@@ -17,25 +17,64 @@
 #ifndef __MEM_MAP_H__
 #define __MEM_MAP_H__
 
-/* Definition for PORTA Registers */
-#define PORTA_REG	(*(volatile uint8 * const)0x003B)
-#define DDRA_REG	(*(volatile uint8 * const)0x003A)
-#define PINA_REG 	(*(volatile const uint8 * const)0x0039)
 
-/* Definition for PORTB Registers */
-#define PORTB_REG	(*(volatile uint8 * const)0x0038)
-#define DDRB_REG	(*(volatile uint8 * const)0x0037)
-#define PINB_REG 	(*(volatile const uint8 * const)0x0036)
+/*
+ * Module Version 1.0.0
+ */
+#define MEM_MAP_SW_MAJOR_VERSION           (1U)
+#define MEM_MAP_SW_MINOR_VERSION           (0U)
+#define MEM_MAP_SW_PATCH_VERSION           (0U)
 
-/* Definition for PORTC Registers */
-#define PORTC_REG	(*(volatile uint8 * const)0x0035)
-#define DDRC_REG	(*(volatile uint8 * const)0x0034)
-#define PINC_REG 	(*(volatile const uint8 * const)0x0033)
+/*
+ * AUTOSAR Version 4.4.0
+ */
+#define MEM_MAP_AR_RELEASE_MAJOR_VERSION   (4U)
+#define MEM_MAP_AR_RELEASE_MINOR_VERSION   (4U)
+#define MEM_MAP_AR_RELEASE_PATCH_VERSION   (0U)
 
-/* Definition for PORTD Registers */
-#define PORTD_REG	(*(volatile uint8 * const)0x0032)
-#define DDRD_REG	(*(volatile uint8 * const)0x0031)
-#define PIND_REG 	(*(volatile const uint8 * const)0x0030)
+#include "Std_Types.h"
+
+/* =====================================================================================================
+ * 										VERSION CHECK
+ * =====================================================================================================*/
+/* AUTOSAR checking between Std_Types and Dio Modules */
+#if ((STD_TYPES_AR_RELEASE_MAJOR_VERSION != MEM_MAP_AR_RELEASE_MAJOR_VERSION)\
+ ||  (STD_TYPES_AR_RELEASE_MINOR_VERSION != MEM_MAP_AR_RELEASE_MINOR_VERSION))
+  #error "The AR version of Std_Types.h does not match the expected version"
+#endif
+
+
+typedef union PORT_Union
+{
+	volatile uint8 Register;
+	struct BitField
+	{
+		volatile uint8 PIN_0: 1; 
+		volatile uint8 PIN_1: 1; 
+		volatile uint8 PIN_2: 1;
+		volatile uint8 PIN_3: 1; 
+		volatile uint8 PIN_4: 1; 
+		volatile uint8 PIN_5: 1; 
+		volatile uint8 PIN_6: 1; 
+		volatile uint8 PIN_7: 1;
+	} BitField;
+}PORT_Union;
+
+
+#define 	PORTA          *((volatile uint8 *)(0X3B))
+#define 	PORTB          *((volatile uint8 *)(0X38))
+#define 	PORTC          *((volatile uint8 *)(0X35))
+#define 	PORTD          *((volatile uint8 *)(0X32))
+	
+#define 	PINA           *((volatile uint8 *)(0X39))
+#define 	PINB           *((volatile uint8 *)(0X36))
+#define 	PINC           *((volatile uint8 *)(0X33))
+#define 	PIND           *((volatile uint8 *)(0X30))
+	
+#define 	DDRA           *((volatile uint8 *)(0X3A))
+#define 	DDRB           *((volatile uint8 *)(0X37))
+#define 	DDRC           *((volatile uint8 *)(0X34))
+#define 	DDRD           *((volatile uint8 *)(0X31))
 
 #endif //__MEM_MAP_H__
 
