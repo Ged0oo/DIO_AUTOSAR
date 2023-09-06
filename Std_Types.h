@@ -6,7 +6,7 @@
  * @Author : 			Mohamed Nagy
  ******************************************************************************/
  
-  /******************************************************************************
+ /******************************************************************************
  * Project :			AUTOSAR r22-11 MCAL
  * Platform :			ARM
  * Board : 				STM32F103C8T6
@@ -27,10 +27,17 @@
  */
 #include "Compiler.h"
 
-/*
- * @brief STD_TYPES VENDOR ID 
+/* 
+ * @brief Id for the company in the AUTOSAR
+ * for example Elektrobit ID = 1  
  */
 #define STD_TYPES_VENDOR_ID                                  (1U)
+
+/* 
+ * @brief Id for the company in the AUTOSAR
+ * for example Elektrobit ID = 1  
+ */
+#define COMPILER_VENDOR_ID                                  (1U)
 
 /*
  * Module Version 1.0.0
