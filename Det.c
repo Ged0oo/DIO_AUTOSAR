@@ -1,20 +1,21 @@
  /******************************************************************************
- * @File :				DET.c
- * @Version :			1.0.0
- * @Module: 			Dio
- * @brief : 			Header file for Dio Module.
- * @Author : 			Mohamed Nagy
+ * @File :				Dio.c                                                  *
+ * @Version :			1.0.0                                                  *
+ * @Module: 			Dio                                                    *
+ * @brief : 			Header file for Dio Module.                            *
+ * @Author : 			Mohamed Nagy                                           *
  ******************************************************************************/
- 
+
  /******************************************************************************
- * Project :			AUTOSAR r22-11 MCAL
- * Platform :			ARM
- * Board : 				STM32F103C8T6
- * Autosar Version :	4.4.0
- * SW Version : 		1.0.0
+ * Project :			AUTOSAR 4.4.0 MCAL 								       *
+ * Platform :			AVR                 								   *
+ * Board : 				ATMEGA32       								           *
+ * Autosar Version :	4.4.0               								   *
+ * SW Version : 		1.0.0               								   *
  ******************************************************************************/
- 
- #include "Det.h"
+
+#include "Det.h"
+
 
 /* Variables to store last DET error */
 uint16 Det_ModuleId = 0;       /*DET module ID*/
@@ -31,3 +32,4 @@ Std_ReturnType Det_ReportError( uint16 ModuleId, uint8 InstanceId, uint8 ApiId, 
     Det_ErrorId = ErrorId;
     return E_OK;
 }
+
