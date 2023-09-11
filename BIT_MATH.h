@@ -1,34 +1,36 @@
  /******************************************************************************
- * @File :				BIT_MATH.h
- * @Version :			1.0.0
- * @Module: 			Dio
- * @brief : 			Header file for Dio Module.
- * @Author : 			Mohamed Nagy
+ * @File :				Common_Macros.h                                        *
+ * @Version :			1.0.0                                                  *
+ * @Module: 			Dio                                                    *
+ * @brief : 			Header file for Dio Module.                            *
+ * @Author : 			Mohamed Nagy                                           *
  ******************************************************************************/
- 
+
  /******************************************************************************
- * Project :			AUTOSAR r22-11 MCAL
- * Platform :			ARM
- * Board : 				STM32F103C8T6
- * Autosar Version :	4.4.0
- * SW Version : 		1.0.0
+ * Project :			AUTOSAR 4.4.0 MCAL 								       *
+ * Platform :			AVR                 								   *
+ * Board : 				ATMEGA32       								           *
+ * Autosar Version :	4.4.0               								   *
+ * SW Version : 		1.0.0               								   *
  ******************************************************************************/
 
+/* =============================================================================
+ * 							    FILE GUARD
+ * ============================================================================*/
+#ifndef COMMON_MACROS
+#define COMMON_MACROS
 
-#ifndef __BIT_MATH_H__
-#define __BIT_MATH_H__
+/* =============================================================================
+ * 							    MACROS
+ * ============================================================================*/
+#define GET_BIT(_REG,_BIT) 			((_REG&(1<<_BIT))>>_BIT)
+#define SET_BIT(_REG,_BIT) 			(_REG|=(1<<_BIT))
+#define CLEAR_BIT(_REG,_BIT) 		(_REG&=(~(1<<_BIT)))
+#define TOGGLE_BIT(_REG,_BIT) 		(_REG^=(1<<_BIT))
 
+#define ROR(_REG,num) 				( _REG = (_REG>>num) | (_REG << ((sizeof(_REG) * 8)-num)) )
+#define ROL(_REG,num) 				( _REG = (_REG<<num) | (_REG >> ((sizeof(_REG) * 8)-num)) )
+#define BIT_IS_SET(_REG,_BIT) 		( _REG & (1<<_BIT) )
+#define BIT_IS_CLEAR(_REG,_BIT) 	( !(_REG & (1<<_BIT)) )
 
-#define SET_BIT(VAR,BIT)       		(VAR |= (1 << (BIT)))
-#define CLEAR_BIT(VAR,BIT)       	(VAR &= ~(1 << (BIT)))
-#define GET_BIT(VAR,BIT)       		((VAR >> BIT) & 1)
-#define TOG_BIT(VAR,BIT)       		(VAR ^= (1 << (BIT)))
-
-
-#define ROR(VAR,BIT) 				(VAR= (VAR>>BIT) | (VAR<<(8-BIT)))
-#define ROL(VAR,BIT) 				(VAR= (VAR<<BIT) | (VAR>>(8-BIT)))
-#define BIT_IS_SET(VAR,BIT)      	((VAR>>BIT)&1)
-#define BIT_IS_CLEAR(VAR,BIT)  		(!((VAR>>BIT)&1))
-
-
-#endif //__BIT_MATH_H__
+#endif
