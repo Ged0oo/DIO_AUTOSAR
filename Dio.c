@@ -641,6 +641,7 @@ void Dio_WritePort(Dio_PortType Port_Id, Dio_PinLevelType level)
 	}
 }
 
+
 /* =============================================================================
  * Service Name: Dio_ReadPort
  * Service ID[hex]: 0x02
