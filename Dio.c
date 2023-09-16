@@ -555,6 +555,7 @@ Dio_LevelType Dio_ReadChannel(Dio_PortType Port_Id, Dio_ChannelType Channel_Id)
 	return output;
 }
 
+
 /* =============================================================================
  * Service name: Dio_WritePort
  * Service ID[hex]: 0x03
