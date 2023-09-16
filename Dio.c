@@ -383,6 +383,7 @@ void Dio_SetupPortDirection(Dio_PortType Port_Id, Dio_Direction dir)
 	}
 }
 
+
 /* =============================================================================
  * Service Name: Dio_WriteChannel
  * Service ID[hex]: 0x01
