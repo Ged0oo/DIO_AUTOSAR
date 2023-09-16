@@ -215,6 +215,7 @@ void Dio_Init(const Dio_ConfigType *ConfigPtr)
 	}
 }
 
+
 /* =============================================================================
  * Service Name: Dio_SetupChannelDirection
  * Service ID[hex]: None
