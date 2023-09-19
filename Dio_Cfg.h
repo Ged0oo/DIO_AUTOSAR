@@ -33,7 +33,6 @@
 #define DIO_CFG_SW_MINOR_VERSION              (0U)
 #define DIO_CFG_SW_PATCH_VERSION              (0U)
 
-
 /*
  * AUTOSAR Version 4.0.3
  */
