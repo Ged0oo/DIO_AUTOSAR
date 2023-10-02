@@ -423,6 +423,7 @@ void Dio_WriteChannel(Dio_PortType Port_Id, Dio_ChannelType Channel_Id,Dio_PinLe
 		/* No Action Required */
 	}
 #endif
+	
 
 	/* In-case there are no errors */
 	if (FALSE == error)
