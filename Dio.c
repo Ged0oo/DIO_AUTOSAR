@@ -306,6 +306,7 @@ void Dio_SetupChannelDirection(Dio_PortType Port_Id, Dio_ChannelType Channel_Id,
 	}
 }
 
+
 /* =============================================================================
  * Service Name: Dio_SetupPortDirection
  * Service ID[hex]: None
